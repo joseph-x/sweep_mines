@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cuv7xvt3vya0j"]
+
+[ext_resource type="Script" uid="uid://dngi14sh6ukaj" path="res://Scripts/paper_burst.gd" id="1_howla"]
+
+[sub_resource type="Gradient" id="Gradient_wjvta"]
+offsets = PackedFloat32Array(0, 0.1875, 0.36607143, 0.54464287, 0.7098214, 0.87053573, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.8666667, 0.54901963, 0, 1, 0.7993991, 0.7104334, 7.70092e-07, 1, 0.39607844, 0.9843137, 0, 1, 0.3799504, 0.9999997, 0.77382153, 1, 0, 0.5568628, 1, 1, 0.64232194, 0.32329813, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_howla"]
+gradient = SubResource("Gradient_wjvta")
+
+[sub_resource type="Gradient" id="Gradient_xy21c"]
+offsets = PackedFloat32Array(0, 0.5089286, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.5647059, 0.5647059, 0.5647059, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ip61m"]
+gradient = SubResource("Gradient_xy21c")
+
+[sub_resource type="Curve" id="Curve_pbinj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_02nsn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.12589927, 0.24707341), 0.0, 0.0, 0, 0, Vector2(0.24820144, 1), 0.0, 0.0, 0, 0, Vector2(0.3848921, 0.22704875), 0.0, 0.0, 0, 0, Vector2(0.48920864, 1), 0.0, 0.0, 0, 0, Vector2(0.6223022, 0.23105371), 0.0, 0.0, 0, 0, Vector2(0.7302158, 1), 0.0, 0.0, 0, 0, Vector2(0.88129497, 0.2230438), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="Curve" id="Curve_4vqhg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_cku3c"]
+curve_x = SubResource("Curve_pbinj")
+curve_y = SubResource("Curve_02nsn")
+curve_z = SubResource("Curve_4vqhg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wjvta"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 700.0
+initial_velocity_max = 800.0
+angular_velocity_min = -360.0
+angular_velocity_max = 359.99997
+gravity = Vector3(0, 980, 0)
+damping_min = 2.0
+damping_max = 5.0
+scale_min = 7.0
+scale_max = 10.0
+scale_curve = SubResource("CurveXYZTexture_cku3c")
+color_ramp = SubResource("GradientTexture1D_ip61m")
+color_initial_ramp = SubResource("GradientTexture1D_howla")
+
+[node name="PaperBurst" type="GPUParticles2D" unique_id=1063291768]
+emitting = false
+amount = 80
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_wjvta")
+script = ExtResource("1_howla")

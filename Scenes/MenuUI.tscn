@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cj0popmgr0som"]
+
+[ext_resource type="Theme" uid="uid://buwrmmybvayhu" path="res://Assets/Styles/MineTheme.tres" id="1_jkpkg"]
+[ext_resource type="Script" uid="uid://c5o5kx2383x5r" path="res://Scripts/MenuEvents.gd" id="2_45sxf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 60.0
+offset_right = 120.0
+offset_bottom = 260.0011
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("2_45sxf")
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(260, 64)
+layout_mode = 2
+theme = ExtResource("1_jkpkg")
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(260, 64)
+layout_mode = 2
+theme = ExtResource("1_jkpkg")
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(260, 64)
+layout_mode = 2
+theme = ExtResource("1_jkpkg")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CenterContainer"]
+layout_mode = 2
+text = "Hello"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="VBoxContainer" method="_on_newgame_pressed"]
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="VBoxContainer" method="_on_continuegame_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="VBoxContainer" method="_on_quit_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ceth1tl7jrm0d"]
+
+[ext_resource type="Script" uid="uid://biy7aoerbgy31" path="res://Scripts/game_board.gd" id="1_8bvmn"]
+[ext_resource type="TileSet" uid="uid://bl4230yxsooy" path="res://Assets/Artwork/Cell/cell_tile_set.tres" id="1_fbla0"]
+
+[node name="GameBoard" type="Node2D" unique_id=822062787]
+script = ExtResource("1_8bvmn")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=143255165]
+tile_set = ExtResource("1_fbla0")
+rendering_quadrant_size = 9
+
+[node name="Label" type="Label" parent="." unique_id=1787862688]
+offset_right = 40.0
+offset_bottom = 23.0

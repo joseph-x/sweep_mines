@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ba4ck736duqtu"]
+
+[ext_resource type="Texture2D" uid="uid://cxm80oitof4by" path="res://Assets/Artwork/game_button/game_button_texture.tres" id="1_ixglv"]
+[ext_resource type="Script" uid="uid://b1wuro40b3nfc" path="res://Scripts/game_button.gd" id="1_nasog"]
+[ext_resource type="Texture2D" uid="uid://cn0k7lribtowl" path="res://Assets/Artwork/game_button/game_button_icon_texture.tres" id="2_16prk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nasog"]
+size = Vector2(84, 84)
+
+[node name="GameButton" type="Node2D" unique_id=1726466315]
+script = ExtResource("1_nasog")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=94330717]
+position = Vector2(42, 42)
+texture = ExtResource("1_ixglv")
+
+[node name="IconSprite" type="Sprite2D" parent="BackgroundSprite" unique_id=1594822335]
+texture = ExtResource("2_16prk")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1388152934]
+position = Vector2(42, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1491025676]
+shape = SubResource("RectangleShape2D_nasog")

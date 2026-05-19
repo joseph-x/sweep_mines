@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://buwrmmybvayhu"]
+
+[ext_resource type="FontFile" uid="uid://d4m5ksotv5xlf" path="res://Fonts/MiSans/MiSans-Semibold.ttf" id="1_0ad1q"]
+
+[resource]
+default_font_size = 14
+Button/fonts/font = ExtResource("1_0ad1q")
+Button/icons/icon = null

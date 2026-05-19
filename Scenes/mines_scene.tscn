@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://qnthlwkkrt5i"]
+
+[ext_resource type="Script" uid="uid://d262gqk0e1eu8" path="res://Scripts/mines_scene.gd" id="1_f4q1r"]
+[ext_resource type="PackedScene" uid="uid://ceth1tl7jrm0d" path="res://Prefabs/game_board.tscn" id="1_jxhgp"]
+[ext_resource type="PackedScene" uid="uid://duuc56t2ypvlw" path="res://Prefabs/digital_display.tscn" id="3_m82xj"]
+[ext_resource type="Script" uid="uid://cie8f0g4vv77t" path="res://Scripts/sweep_mine_game.gd" id="4_ftvmb"]
+[ext_resource type="PackedScene" uid="uid://ba4ck736duqtu" path="res://Prefabs/game_button.tscn" id="4_u6u5w"]
+[ext_resource type="FontFile" uid="uid://dwhf2jwi457sm" path="res://Fonts/MiSans/MiSans-Bold.ttf" id="6_id1ql"]
+[ext_resource type="PackedScene" uid="uid://cuv7xvt3vya0j" path="res://Scenes/paper_burst.tscn" id="6_u4w4x"]
+
+[sub_resource type="Gradient" id="Gradient_u6u5w"]
+colors = PackedColorArray(0.1764706, 0.08235294, 0.3019608, 1, 0.1764706, 0.08235294, 0.3019608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hmn50"]
+gradient = SubResource("Gradient_u6u5w")
+
+[node name="MinesScene" type="Node2D" unique_id=644734429]
+script = ExtResource("1_f4q1r")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=961389929]
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer" unique_id=807570644]
+position = Vector2(304, 378)
+scale = Vector2(3, 750)
+texture = SubResource("GradientTexture1D_hmn50")
+
+[node name="GameBoard" parent="UICanvasLayer" unique_id=822062787 node_paths=PackedStringArray("game") instance=ExtResource("1_jxhgp")]
+position = Vector2(16, 164)
+game = NodePath("../../Game")
+
+[node name="GameNameLabel" type="Label" parent="UICanvasLayer" unique_id=227454012]
+modulate = Color(1, 1, 1, 0.5882353)
+custom_minimum_size = Vector2(576, 32)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 592.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 24
+text = "Sweep Mines"
+metadata/_edit_use_anchors_ = true
+
+[node name="MineDigitalDisplay" parent="UICanvasLayer" unique_id=1866264005 instance=ExtResource("3_m82xj")]
+position = Vector2(16, 64)
+
+[node name="TimeDigitalDisplay" parent="UICanvasLayer" unique_id=791051094 instance=ExtResource("3_m82xj")]
+position = Vector2(356, 64)
+"display_align‌" = 2
+
+[node name="GameButton" parent="UICanvasLayer" unique_id=1726466315 node_paths=PackedStringArray("game") instance=ExtResource("4_u6u5w")]
+position = Vector2(262, 64)
+game = NodePath("../../Game")
+
+[node name="WinPopupCanvasLayer" type="CanvasLayer" parent="." unique_id=901999768]
+visible = false
+
+[node name="WinLabel" type="Label" parent="WinPopupCanvasLayer" unique_id=976369998]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -40.0
+offset_right = 118.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_id1ql")
+theme_override_font_sizes/font_size = 60
+text = "You Win"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaperBurst" parent="WinPopupCanvasLayer/WinLabel" unique_id=1063291768 instance=ExtResource("6_u4w4x")]
+position = Vector2(130, 114)
+
+[node name="LostPopupCanvasLayer" type="CanvasLayer" parent="." unique_id=1897828067]
+visible = false
+
+[node name="LostLabel" type="Label" parent="LostPopupCanvasLayer" unique_id=603579520]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -40.0
+offset_right = 118.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.4331451, 0.13193855, 0, 1)
+theme_override_fonts/font = ExtResource("6_id1ql")
+theme_override_font_sizes/font_size = 60
+text = "You Lost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Game" type="Node" parent="." unique_id=1449173334]
+script = ExtResource("4_ftvmb")
+
+[node name="Timer" type="Timer" parent="Game" unique_id=784160364]

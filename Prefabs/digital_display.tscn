@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://duuc56t2ypvlw"]
+
+[ext_resource type="Script" uid="uid://b3t56237tu5l4" path="res://Scripts/digital_display.gd" id="1_56bxt"]
+[ext_resource type="Texture2D" uid="uid://nll4tc71mto" path="res://Assets/Artwork/digital_display/container_bg.png" id="1_e3vwh"]
+[ext_resource type="FontFile" uid="uid://cybv7ivda0qfo" path="res://Fonts/DSEG/DSEG7ModernMini-Bold.ttf" id="2_56jfl"]
+
+[node name="DigitalDisplay" type="Node2D" unique_id=1866264005]
+script = ExtResource("1_56bxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682260247]
+position = Vector2(118, 42)
+texture = ExtResource("1_e3vwh")
+
+[node name="Label" type="Label" parent="." unique_id=1263691267]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 220.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("2_56jfl")
+theme_override_font_sizes/font_size = 48
+text = "000"
+vertical_alignment = 1
